@@ -1,24 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+import "gestalt/dist/gestalt.css";
 
 import App from "./components/App";
 import Checkout from './components/Checkout';
 import Signin from './components/Signin';
 import Signup from './components/Signup';
+import Navbar from './components/Navbar';
 
 
 const Root = () => (
   <Router>
-    <Routes>
-      <Route exact path="/" element={<App />} />
-      <Route exact path="/signin" element={<Signin />} />
-      <Route exact path="/signup" element={<Signup />} />
+    <React.Fragment>
+      <Navbar />
+      <Routes>
+        <Route exact path="/" element={<App />} />
+        <Route exact path="/signin" element={<Signin />} />
+        <Route exact path="/signup" element={<Signup />} />
 
-      <Route exact path="/checkout" element={<Checkout />} />
-    </Routes>
+        <Route exact path="/checkout" element={<Checkout />} />
+      </Routes>
+    </React.Fragment>
   </Router>
 );
 export default Root;
